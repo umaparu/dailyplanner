@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Work Day Scheduler</title>
+  </head>
+
+  <body>
+    <header class="jumbotron">
+      <h1 class="display-3">Work Day Scheduler</h1>
+      <p class="lead">A simple calendar app for scheduling your work day</p>
+      <p id="currentDay" class="lead"></p>
+      <input type="hidden" id="currentDate" value="">
+    </header>
+    <div id="hourdiv">
+
+    <div class="container" class="time-block ">
+      <!-- Timeblocks go here -->
+      <textarea rows="2" cols="10" id="time9" class="hour">9 AM</textarea>
+      <textarea rows="2" cols="50" id="text9" class="future"></textarea>
+      <button  id="Btn9" class="saveBtn2"><i class="fa fa-save"></i></button>
+    </div>
+    <div class="container" class="time-block ">
+      <!-- Timeblocks go here -->
+      <textarea rows="2" cols="10" id="time10" class="hour">10 AM</textarea>
+      <textarea rows="2" cols="50" id="text10" class="future"></textarea>
+      <button  id="Btn10" class="saveBtn2"><i class="fa fa-save"></i></button>
+    </div>
+    <div class="container" class="time-block ">
+      <!-- Timeblocks go here -->
+      <textarea rows="2" cols="10" id="time11" class="hour">11 AM</textarea>
+      <textarea rows="2" cols="50" id="text11" class="future"></textarea>
+      <button  id="Btn11" class="saveBtn2"><i class="fa fa-save"></i></button>
+    </div>
+    <div class="container" class="time-block ">
+      <!-- Timeblocks go here -->
+      <textarea rows="2" cols="10" id="time12" class="hour">12 Noon</textarea>
+      <textarea rows="2" cols="50" id="text12" class="future"></textarea>
+      <button  id="Btn12" class="saveBtn2"><i class="fa fa-save"></i></button>
+    </div>
+    <div class="container" class="time-block ">
+      <!-- Timeblocks go here -->
+      <textarea rows="2" cols="10" id="time13" class="hour">1 PM</textarea>
+      <textarea rows="2" cols="50" id="text13" class="future"></textarea>
+      <button  id="Btn13" class="saveBtn2"><i class="fa fa-save"></i></button>
+    </div>
+
+    <div class="container" class="time-block ">
+      <!-- Timeblocks go here -->
+      <textarea rows="2" cols="10" id="time14" class="hour">2 PM</textarea>
+      <textarea rows="2" cols="50" id="text14" class="future"></textarea>
+      <button  id="Btn14" class="saveBtn2"><i class="fa fa-save"></i></button>
+    </div>
+    <div class="container" class="time-block ">
+      <!-- Timeblocks go here -->
+      <textarea rows="2" cols="10" id="time15" class="hour">3 PM</textarea>
+      <textarea rows="2" cols="50" id="text15" class="future"></textarea>
+      <button  id="Btn15" class="saveBtn2"><i class="fa fa-save"></i></button>
+    </div>
+    <div class="container" class="time-block ">
+      <!-- Timeblocks go here -->
+      <textarea rows="2" cols="10" id="time16" class="hour">4 PM</textarea>
+      <textarea rows="2" cols="50" id="text16" class="future"></textarea>
+      <button  id="Btn16" class="saveBtn2"><i class="fa fa-save"></i></button>
+    </div>
+    <div class="container" class="time-block ">
+      <!-- Timeblocks go here -->
+      <textarea rows="2" cols="10" id="time17" class="hour">5 PM</textarea>
+      <textarea rows="2" cols="50" id="text17" class="future"></textarea>
+      <!-- <button  id="Btn17" class="saveBtn2" onclick="saveData('text17')"><i class="fa fa-save"></i></button>  -->
+      <button  id="Btn17" class="saveBtn2"><i class="fa fa-save"></i></button>
+    </div>
+  </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  
+<script>
+
+    $(document).ready(function() {
+      $("#currentDay").html((moment().format("dddd, MMMM Do")));
+      $("#currentDate").val((moment().format("DDMMYYYY")));
+
+      var currentHour = moment().format("H");
+
+      // For testing ..
+      //if (currentHour > 17) currentHour = 16;
+      //alert(typeof currentHour);
+      
+      for (i=9; i<=17; i++) {
+
+        var textId = 'text';
+        textId = textId + i;
+        console.log(textId);
+
+        if (i== currentHour)  {
+          $('#' + textId).attr('class', 'present');
+        } else if (i < currentHour ) {
+          $('#' + textId).attr('class', 'past');
+        } else {
+          $('#' + textId).attr('class', 'future');
+        }
+        
+        $('#text9').val(localStorage.getItem("text9"));
+        $('#text10').val(localStorage.getItem("text10"));
+        $('#text11').val(localStorage.getItem("text11"));
+        $('#text12').val(localStorage.getItem("text12"));
+        $('#text13').val(localStorage.getItem("text13"));
+        $('#text14').val(localStorage.getItem("text14"));
+        $('#text15').val(localStorage.getItem("text15"));
+        $('#text16').val(localStorage.getItem("text16"));
+        $('#text17').val(localStorage.getItem("text17"));
+
+    }
+
+  });
+
+
+  $("#Btn9").click(function(){
+    var txtVal = $('#text9').val();
+    localStorage.setItem("text9", txtVal);
+});
+$("#Btn10").click(function(){
+    var txtVal = $('#text10').val();
+    localStorage.setItem("text10", txtVal);
+});
+$("#Btn11").click(function(){
+    var txtVal = $('#text11').val();
+    localStorage.setItem("text11", txtVal);
+});
+$("#Btn12").click(function(){
+    var txtVal = $('#text12').val();
+    localStorage.setItem("text12", txtVal);
+});
+$("#Btn13").click(function(){
+    var txtVal = $('#text13').val();
+    localStorage.setItem("text13", txtVal);
+});
+$("#Btn14").click(function(){
+    var txtVal = $('#text14').val();
+    localStorage.setItem("text14", txtVal);
+});
+$("#Btn15").click(function(){
+    var txtVal = $('#text15').val();
+    localStorage.setItem("text15", txtVal);
+});
+$("#Btn16").click(function(){
+    var txtVal = $('#text16').val();
+    localStorage.setItem("text16", txtVal);
+});
+$("#Btn17").click(function(){
+    var txtVal = $('#text17').val();
+    localStorage.setItem("text17", txtVal);
+});
+
+
+
+
+</script>
+
+  </body>
+</html>

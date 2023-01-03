@@ -94,12 +94,16 @@
   
 <script>
 
+    var currentDateStr = moment().format("DDMMYYYY");
+
     $(document).ready(function() {
       $("#currentDay").html((moment().format("dddd, MMMM Do")));
       $("#currentDate").val((moment().format("DDMMYYYY")));
 
       var currentHour = moment().format("H");
-      var currentDate = moment().format("DDMMYYYY");
+      var currentDateStr = moment().format("DDMMYYYY");
+      
+      //alert(typeof currentDate);
 
       // For testing ..
       //if (currentHour > 17) currentHour = 16;
@@ -118,57 +122,57 @@
         } else {
           $('#' + textId).attr('class', 'future');
         }
-        
-        $('#text9').val(localStorage.getItem("text9"));
-        $('#text10').val(localStorage.getItem("text10"));
-        $('#text11').val(localStorage.getItem("text11"));
-        $('#text12').val(localStorage.getItem("text12"));
-        $('#text13').val(localStorage.getItem("text13"));
-        $('#text14').val(localStorage.getItem("text14"));
-        $('#text15').val(localStorage.getItem("text15"));
-        $('#text16').val(localStorage.getItem("text16"));
-        $('#text17').val(localStorage.getItem("text17"));
+       
+        $('#text9').val(localStorage.getItem(currentDateStr + "text9"));
+        $('#text10').val(localStorage.getItem(currentDateStr + "text10"));
+        $('#text11').val(localStorage.getItem(currentDateStr + "text11"));
+        $('#text12').val(localStorage.getItem(currentDateStr + "text12"));
+        $('#text13').val(localStorage.getItem(currentDateStr + "text13"));
+        $('#text14').val(localStorage.getItem(currentDateStr + "text14"));
+        $('#text15').val(localStorage.getItem(currentDateStr + "text15"));
+        $('#text16').val(localStorage.getItem(currentDateStr + "text16"));
+        $('#text17').val(localStorage.getItem(currentDateStr + "text17"));
 
     }
 
   });
 
 
-  $("#Btn9").click(function(){
+$("#Btn9").click(function(){
     var txtVal = $('#text9').val();
-    localStorage.setItem("text9", txtVal);
+    localStorage.setItem(currentDateStr + "text9", txtVal);
 });
 $("#Btn10").click(function(){
     var txtVal = $('#text10').val();
-    localStorage.setItem("text10", txtVal);
+    localStorage.setItem(currentDateStr + "text10", txtVal);
 });
 $("#Btn11").click(function(){
     var txtVal = $('#text11').val();
-    localStorage.setItem("text11", txtVal);
+    localStorage.setItem(currentDateStr + "text11", txtVal);
 });
 $("#Btn12").click(function(){
     var txtVal = $('#text12').val();
-    localStorage.setItem("text12", txtVal);
+    localStorage.setItem(currentDateStr + "text12", txtVal);
 });
 $("#Btn13").click(function(){
     var txtVal = $('#text13').val();
-    localStorage.setItem("text13", txtVal);
+    localStorage.setItem(currentDateStr + "text13", txtVal);
 });
 $("#Btn14").click(function(){
     var txtVal = $('#text14').val();
-    localStorage.setItem("text14", txtVal);
+    localStorage.setItem(currentDateStr + "text14", txtVal);
 });
 $("#Btn15").click(function(){
     var txtVal = $('#text15').val();
-    localStorage.setItem("text15", txtVal);
+    localStorage.setItem(currentDateStr + "text15", txtVal);
 });
 $("#Btn16").click(function(){
     var txtVal = $('#text16').val();
-    localStorage.setItem("text16", txtVal);
+    localStorage.setItem(currentDateStr + "text16", txtVal);
 });
 $("#Btn17").click(function(){
     var txtVal = $('#text17').val();
-    localStorage.setItem("text17", txtVal);
+    localStorage.setItem(currentDateStr + "text17", txtVal);
 });
 
 
